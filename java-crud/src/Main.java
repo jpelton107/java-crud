@@ -3,10 +3,16 @@ import java.util.HashMap;
 public class Main {
 	private HashMap<Integer, String[]> myList = null;
 	public DBH db = null;
+	protected View view;
+	
+	public Main(DBH db) throws Exception {
+		this.view = new View();
+		this.db = db;
+	}
+	
 	public void read() throws Exception {
 		myList = db.getList(null);
-		
-		new Read(myList, db);
+		view.loadRead(myList, db);
 	}
 	
 	public void create() throws Exception {
@@ -23,8 +29,5 @@ public class Main {
 		
 		
 	}
-		
-	public Main(DBH dbh) throws Exception {
-		db = dbh;
-	}
+
 }
