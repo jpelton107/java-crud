@@ -13,6 +13,8 @@ public class DBH {
 	public void readDatabase() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			
+			//zeroDateTimeBehavior=convertToNull
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/list?user=root");
 		} catch (Exception e) {
 			throw e;
