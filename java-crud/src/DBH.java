@@ -107,10 +107,11 @@ public class DBH {
 			query += col + ", ";
 			queryVals += "?, ";
 		}
-		query = query.substring(0, -2);
-		queryVals = queryVals.substring(0, -2);
-		query += queryVals;
+		query = query.substring(0, query.length() - 2);
+		queryVals = queryVals.substring(0, queryVals.length() - 2);
+		query += queryVals + ")";
 		
+		System.out.println(query);
 		PreparedStatement ps = connect.prepareStatement(query);
 		int i = 1;
 		for (String value : values) {

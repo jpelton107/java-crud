@@ -6,7 +6,7 @@ public class Main {
 	protected View view;
 	
 	public Main(DBH db) throws Exception {
-		this.view = new View();
+		this.view = new View(this);
 		this.db = db;
 	}
 	
@@ -30,4 +30,7 @@ public class Main {
 		
 	}
 
+	public HashMap<Integer, String[]> reloadData() throws Exception {
+		return db.getList(null);
+	}
 }
